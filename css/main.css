@@ -138,7 +138,7 @@ nav ul li ul li a {
     border-radius: 10px;
 }
 .todo-table thead tr {
-    background:rgb(210, 231, 146);     /*#3D39AA;*/
+    background:rgb(10, 10, 0);     /*#3D39AA;*/
     font-family: Inter;
     font-style: normal;
     font-weight: bold;
