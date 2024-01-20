@@ -356,7 +356,14 @@ nav ul li ul li a {
     margin-bottom: 15px;
 }
 /*login container style ends*/
-
+/*Registration container table starts*/
+.container3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+/*Registration conatiner table ends*/
 /*Footer style starts*/
 footer {
     background-color: darkgray;
