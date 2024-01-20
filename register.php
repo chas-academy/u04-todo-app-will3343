@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,6 +37,32 @@
     <!--registration container starts-->
     <div class="container3">
         <div class="box form-box">
+            <?php 
+                include("config.php");
+                    if(isset($_POST['submit'])){
+                        $username = $_POST['username'];
+                        $email = $_POST['email'];
+                        $age = $_POST['age'];
+                        $password = $_POST['password'];
+
+                    //verifying the unique email
+                        $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'");
+                    if(mysqli_num_rows($verify_query) !=0 ){
+                        echo "<div class='message'>
+                            <p>This email is used, Try another One Please!</p>
+                            </div> <br>";
+                        echo "<a href='javascript:self.history.back()'><button class='btn'>Gå Tillbaka</button>";
+                    }
+                    else{
+                        mysqli_query($con,"INSERT INTO users(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
+                        echo "<div class='message'>
+                              <p>Registration successfully!</p>
+                              </div> <br>";
+                        echo "<a href='login.php'><button class='btn'>Logga-in Nu</button>";
+                    }
+                    }else{
+                ?>
+                
             <header><h1> Registrera dig</h1><br></header>
                 <form action="" method="post">
                     <div class="field input">
@@ -63,6 +89,7 @@
                     </div>
                 </form>
         </div>
+        <?php } ?>
     </div>
     <!--registration container ends-->
 </body>

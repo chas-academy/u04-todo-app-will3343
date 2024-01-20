@@ -1,3 +1,8 @@
+<?php 
+    include_once('config.php');
+    include_once('database.php');
+?>
+
 <!doctype html>
 <html lang="sv">
     <head>
@@ -23,13 +28,13 @@
                         <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
                             <ul class="nav-list">
                                 <li>
-                                    <a href="#!">Home</a>
+                                    <a href="index.php">Home</a>
                                 </li>
                                 <li>
                                     <a href="#!">Logga in</a>
                                 </li>
                                 <li>
-                                    <a href="#!">Logga ut</a>
+                                    <a href="login.php">Logga ut</a>
                                 </li>
                             </ul>
                     </nav>
@@ -40,11 +45,25 @@
 
         <!-- Container table starts -->
         <div class="container">
-            <form action="#" method="POST">
+            <form action="process.php" method="POST">
                 <div class="todo-table">
                     <h1>Mina Anteckningar</h1>
-                    <h6> </h6>
-                    
+                    <h6> 
+                        <?php 
+                            $sql = "SELECT * FROM todos";
+                            $result = mysqli_query($db,$sql);
+                            $todos = mysqli_fetch_all($result);
+                            $total = count($todos);
+                            $complete = 0;
+                            //mysqli_bind_param()
+                                foreach($todos as $todo){
+                                    if($todo[2]==true){
+                                        $complete++;
+                                    }
+                                }
+                            echo $total." Total, ".$complete." Complete,".($total-$complete)." Pending.";
+                        ?>
+                    </h6>
                         <div class="btn-holder">
                             <a href="add-todo.html" class="btn btn-primary"><i class="fa fa-plus"></i> + Lägg till </a>
                             <button name="action" value="edit" class="btn btn-secondary"><i class="fa fa-edit"></i> Uppdatera</button>
@@ -53,7 +72,10 @@
                             <button name="action" value="pending" class="btn btn-orange"><i class="fa fa-thumbs-down"></i> Markera avvaktan</button>
                         </div>
 
-                    <p style="margin-top: 10px;"> </p>
+                    <p style="margin-top: 10px;"> 
+                        <?php if(!empty($_GET['error'])) echo "Error : ".$_GET['error']; ?>
+                        <?php if(!empty($_GET['success'])) echo "Success : ".$_GET['success']; ?> 
+                    </p>
                     <table>
                         <thead>
                             <tr>
@@ -63,6 +85,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                                foreach($todos as $todo){
+                            ?>
+                            <tr class="<?php echo $todo[2]?'complete':''; ?>">
+                                <td><input  type="radio" required name="todo" value="<?php echo $todo[0]; ?>" id=""></td>
+                                <td><?php echo $todo[1]; ?></td>
+                                <td><?php echo $todo[2]?'Complete':'Pending'; ?></td>
+                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

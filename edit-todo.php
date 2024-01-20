@@ -1,5 +1,18 @@
+<?php 
+    include_once('config.php');
+    include_once('database.php');
+
+    if(empty($_GET['id'])){
+        header('Location: index.php?error=Select atleast one todo');
+    }
+        $sql = "SELECT * FROM todos WHERE `id` = ".$_GET['id'];
+        $result = mysqli_query($db,$sql);
+        $data = mysqli_fetch_assoc($result);
+    
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
