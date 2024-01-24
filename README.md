@@ -13,9 +13,9 @@ Ett webbprojekt som är en att-göra-lista heter FOKUS-TODO-LISTA där listan sp
 
 ---
 
-om ni har andra uppdateringsfunktionalitet, hur man kan ta bort och hur man kan se alla todos).
+om man har andra uppdateringsfunktionalitet, hur man kan ta bort och hur man kan se alla todos).
 
-I detta moment kommer ni se hur man kan skapa en digital att-göra-lista i en dynamisk webbplats, med PHP, SQL HTML och CSS. Den här uppgiften går ut på att i bygga en webbplats som nyttjar en databas i PHP och Sql.
+I detta moment kommer man se hur man kan skapa en digital att-göra-lista app i en dynamisk webbplats, med PHP, SQL HTML och CSS. Den här uppgiften går ut på att i bygga en webbplats som nyttjar en databas i PHP och Sql.
 
 ---
 
