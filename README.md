@@ -57,5 +57,10 @@ En SQL databas med 2 tabeller (todos och users) och data Hantera uppgifter, Skap
 
 En kort presentation om Fokus-ToDo-Lista app 
 
+[Presentation U04](https://drive.google.com/file/d/124sKpj29STA_2TFM55ZnXgefHxv8xKv9/view)
+
+Alla Fokus-To-Do-Lista codes i .zip
+[ladda ned codes ](https://drive.google.com/file/d/1be8rr7UpZxlkX3UqYOGI_JMn_YsJt6Tc/view)
+
 
 ---
